@@ -16,6 +16,8 @@ RUN apt-get install -y libgl1-mesa-dri
 RUN apt-get install -y matchbox-window-manager
 RUN apt-get install -y xautomation
 RUN apt-get install -y feh
+RUN apt-get install -y xauth
+RUN apt-get install -y libraspberrypi0 libraspberrypi-dev libraspberrypi-doc libraspberrypi-bin
 
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
@@ -32,10 +34,10 @@ ADD wallpaper.png /etc/wallpaper.png
 #VOLUME /dev/tty0
 
 RUN adduser --system --uid 5000 --disabled-password --disabled-login -q chromium
-
+RUN addgroup chromium tty
 RUN [ "cross-build-end" ]
 
-#USER chromium
+USER chromium
 
 ENTRYPOINT [ "/bin/run" ]
 
