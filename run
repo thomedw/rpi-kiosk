@@ -31,7 +31,7 @@ xset -dpms
 xset s off
 xset s noblank
 
-chromium-browser --incognito --kiosk "$URL"
+su -c "chromium-browser --incognito --kiosk $URL" chromium
 
 sleep infinity
 

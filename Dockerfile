@@ -31,6 +31,8 @@ ADD wallpaper.png /etc/wallpaper.png
 #RUN chmod +x /bin/run
 #VOLUME /dev/tty0
 
+RUN adduser --system --uid 5000 --no-create-home --disabled-password --disabled-login -q chromium
+
 RUN [ "cross-build-end" ]
 
 ENTRYPOINT [ "/bin/run" ]
