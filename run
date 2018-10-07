@@ -20,7 +20,7 @@ xset s off
 xset s noblank
 
 #chromium-browser --incognito --kiosk --disable-extensions  --no-first-run  "$URL"
-su -l --preserve-environment -c "chromium-browser --incognito --kiosk --disable-extensions  --no-first-run  $URL" chromium
+su -l --preserve-environment -c "chromium-browser --incognito --display=:0  --kiosk --disable-extensions  --no-first-run  $URL" chromium
 
 sleep infinity
 

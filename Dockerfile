@@ -18,8 +18,9 @@ RUN apt-get install -y xautomation
 RUN apt-get install -y feh
 RUN apt-get install -y xauth
 RUN apt-get install -y libraspberrypi0 libraspberrypi-dev libraspberrypi-doc libraspberrypi-bin
+RUN apt-get install -y xinit
 
-RUN apt-get clean && rm -rf /var/lib/apt/lists/*
+#RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
 #RUN apt-get update && apt-get install -y \
 #  iceweasel dropbear xserver-xorg-core xserver-xorg-video-fbdev x11-xserver-utils \
@@ -33,7 +34,7 @@ ADD wallpaper.png /etc/wallpaper.png
 #RUN chmod +x /bin/run
 #VOLUME /dev/tty0
 
-RUN adduser --system --uid 5000 --disabled-password --disabled-login -q chromium
+RUN adduser --system --uid 5000 --disabled-password --shell /bin/bash  -q chromium
 RUN addgroup chromium tty
 RUN [ "cross-build-end" ]
 
