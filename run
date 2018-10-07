@@ -6,20 +6,22 @@ URL=${URL:-http://jodel-app.com}
 #Xorg &
 #X_PID=$!
 
-xinit&
+echo $URL > /root/url
+while ! curl -sf -o /dev/null "$URL"; do sleep 1; done
+xinit
 
-echo "Waiting for X to be ready"
-export DISPLAY=:0
+#echo "Waiting for X to be ready"
+#export DISPLAY=:0
 
 # Setting wallpaper and polling X in one!
 #while ! feh --bg-scale /etc/wallpaper.png; do sleep 1; done
 #matchbox-window-manager -use_cursor no &
 
-while ! curl -sf -o /dev/null "$URL"; do sleep 1; done
 
-xset -dpms
-xset s off
-xset s noblank
+
+#xset -dpms
+#xset s off
+#xset s noblank
 
 #chromium-browser --incognito --kiosk --disable-extensions  --no-first-run  "$URL"
 #su -l --preserve-environment -c "chromium-browser --incognito --display=:0  --kiosk --disable-extensions  --no-first-run  $URL" chromium

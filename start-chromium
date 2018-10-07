@@ -1,1 +1,4 @@
-su  --preserve-environment -c "chromium-browser --incognito --display=:0  --kiosk --disable-extensions  --no-first-run  $URL" chromium
+xset -dpms
+xset s off
+xset s noblank
+su  -c "chromium-browser --incognito --display=:0  --kiosk --disable-extensions  --no-first-run  `cat /root/url`" chromium
