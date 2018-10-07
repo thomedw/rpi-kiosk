@@ -1,4 +1,4 @@
-FROM resin/armv7hf-debian-qemu
+FROM thomaskatalis/rpi-raspbian
 
 RUN [ "cross-build-start" ]
 
