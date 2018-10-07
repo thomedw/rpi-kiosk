@@ -7,7 +7,7 @@ ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update
 
 RUN apt-get install -y chromium-browser
-RUN apt-get install -y dropbear
+#RUN apt-get install -y dropbear
 RUN apt-get install -y xserver-xorg-core
 RUN apt-get install -y xserver-xorg-video-fbdev
 RUN apt-get install -y x11-xserver-utils
@@ -31,9 +31,11 @@ ADD wallpaper.png /etc/wallpaper.png
 #RUN chmod +x /bin/run
 #VOLUME /dev/tty0
 
-RUN adduser --system --uid 5000 --no-create-home --disabled-password --disabled-login -q chromium
+RUN adduser --system --uid 5000 --disabled-password --disabled-login -q chromium
 
 RUN [ "cross-build-end" ]
+
+USER chromium
 
 ENTRYPOINT [ "/bin/run" ]
 

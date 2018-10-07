@@ -3,18 +3,6 @@
 set -x
 URL=${URL:-http://jodel-app.com}
 
-export PASS=${PASS:=root}
-echo "root:$PASS" | chpasswd
-
-rm -rf /tmp/*
-
-if ! [ -e "/etc/dropbear/dropbear_ecdsa_host_key" ]; then
-  dropbearkey -t ecdsa -f /etc/dropbear/dropbear_ecdsa_host_key
-fi
-
-dropbear -E -F &
-DB_PID=$!
-
 Xorg &
 X_PID=$!
 
@@ -31,7 +19,7 @@ xset -dpms
 xset s off
 xset s noblank
 
-su -c "chromium-browser --incognito --kiosk $URL" chromium
+chromium-browser --incognito --kiosk $URL
 
 sleep infinity
 
