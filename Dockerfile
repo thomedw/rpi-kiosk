@@ -7,14 +7,14 @@ ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update
 
 RUN apt-get install -y chromium-browser
-#RUN apt-get install -y dropbear
-#RUN apt-get install -y xserver-xorg-core
-#RUN apt-get install -y xserver-xorg-video-fbdev
-#RUN apt-get install -y x11-xserver-utils
-#RUN apt-get install -y libgl1-mesa-dri
+RUN apt-get install -y dropbear
+RUN apt-get install -y xserver-xorg-core
+RUN apt-get install -y xserver-xorg-video-fbdev
+RUN apt-get install -y x11-xserver-utils
+RUN apt-get install -y libgl1-mesa-dri
 ##RUN apt-get install -y xserver-xorg-video-vesa  xorg-video-abi-18
 RUN apt-get install -y matchbox-window-manager
-#RUN apt-get install -y xautomation
+RUN apt-get install -y xautomation
 RUN apt-get install -y feh
 
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
@@ -28,7 +28,7 @@ RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 ADD run /bin/run
 ADD wallpaper.png /etc/wallpaper.png
 #ADD dot-mozilla /root/.mozilla
-RUN chmod +x /bin/run
+#RUN chmod +x /bin/run
 #VOLUME /dev/tty0
 
 RUN [ "cross-build-end" ]
