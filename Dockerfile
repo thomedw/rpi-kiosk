@@ -37,7 +37,7 @@ RUN adduser --system --uid 5000 --disabled-password --disabled-login -q chromium
 RUN addgroup chromium tty
 RUN [ "cross-build-end" ]
 
-USER chromium
+#USER chromium
 
 ENTRYPOINT [ "/bin/run" ]
 
