@@ -28,7 +28,7 @@ RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 ADD run /bin/run
 ADD wallpaper.png /etc/wallpaper.png
 #ADD dot-mozilla /root/.mozilla
-
+RUN chmod +x /bin/run
 #VOLUME /dev/tty0
 
 RUN [ "cross-build-end" ]
