@@ -1,4 +1,6 @@
-FROM resin/raspberrypi3-python
+FROM resin/armv7hf-debian-qemu
+
+RUN [ "cross-build-start" ]
 
 ENV DEBIAN_FRONTEND noninteractive
 
