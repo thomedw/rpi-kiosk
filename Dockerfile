@@ -31,5 +31,7 @@ ADD wallpaper.png /etc/wallpaper.png
 
 #VOLUME /dev/tty0
 
+RUN [ "cross-build-end" ]
+
 ENTRYPOINT [ "/bin/run" ]
 
