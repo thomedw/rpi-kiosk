@@ -19,7 +19,7 @@ xset -dpms
 xset s off
 xset s noblank
 
-chromium-browser --incognito --kiosk --disable-extensions  --no-first-run --no-sandbox "$URL"
+chromium-browser --incognito --kiosk --disable-extensions  --no-first-run  "$URL"
 
 sleep infinity
 
