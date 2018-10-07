@@ -1,4 +1,4 @@
-FROM thomaskatalis/rpi-raspbian
+FROM thomaskatalis/rpi-raspbian:stretch
 
 RUN [ "cross-build-start" ]
 
