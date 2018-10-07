@@ -19,7 +19,7 @@ xset -dpms
 xset s off
 xset s noblank
 
-su --preserve-environment -c "chromium-browser --incognito --kiosk $URL" chromium
+chromium-browser --incognito --kiosk --no-sandbox "$URL"
 
 sleep infinity
 
