@@ -38,7 +38,10 @@ RUN adduser --system --uid 5000 --disabled-password --shell /bin/bash  -q chromi
 RUN addgroup chromium tty
 RUN [ "cross-build-end" ]
 
+ADD start-chromium /root/start-chromium
+
 #USER chromium
 
+ENV XINITRC=/root/start-chromium
 ENTRYPOINT [ "/bin/run" ]
 
